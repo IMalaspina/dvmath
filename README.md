@@ -6,7 +6,6 @@
 **Version:** 0.1.0  
 **Lizenz / License:** MIT  
 
-![DV-Space](https://raw.githubusercontent.com/IMalaspina/dvmath/main/assets/dv-rotation-demo.gif) *(coming in 10 minutes)*
 
 ## Das Paper (4 Seiten, PDF)
 → [DV_Englisch_FINAL.pdf](DV_Englisch_FINAL.pdf)
