@@ -8,7 +8,7 @@
 
 
 ## Das Paper (4 Seiten, PDF)
-[→ [DV_Englisch_FINAL.pdf](DV_Englisch_FINAL.pdf)](https://github.com/IMalaspina/dvmath/blob/main/DV_Englisch%20FINAL.pdf)
+(https://github.com/IMalaspina/dvmath/blob/main/DV_Englisch%20FINAL.pdf)
 
 ## Die Revolution in zwei Zeilen Code
 
