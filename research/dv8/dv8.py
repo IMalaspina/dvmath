@@ -147,14 +147,16 @@ class DV8:
         
         - Scalar division: A / k
         - DV8 division: A / B = A * B^(-1)
-        - If B is zero-norm, apply STO to A
+        - If B is zero-norm or near-zero, apply STO to A
         """
         if isinstance(other, (int, float)):
             if abs(other) < 1e-10:
                 return self.STO()
             return DV8(*[c / other for c in self.components])
         elif isinstance(other, DV8):
-            if other.is_zero():
+            # Check norm squared to be consistent with inverse() method
+            norm_sq = sum(c**2 for c in other.components)
+            if norm_sq < 1e-10:
                 return self.STO()
             return self * other.inverse()
         else:

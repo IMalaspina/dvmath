@@ -7,7 +7,7 @@
 
 **Author:** Ivano Franco Malaspina  
 **Date:** December 2025  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 
 ---
 
@@ -18,9 +18,11 @@ DV-Mathematics (Dimensions-Vectors) is a mathematical framework for handling sin
 **Key Features:**
 - **DV²:** 2-dimensional algebra isomorphic to complex numbers (ℂ)
 - **DV⁴:** 4-dimensional algebra isomorphic to quaternions (ℍ)
+- **DV⁸:** 8-dimensional algebra isomorphic to octonions (𝕆) — **Validated**
 - **STO (Singularity Treatment Operation):** Conceptual rule for handling division by zero
 - **Norm Preservation:** All operations maintain vector norms
 - **Paradox-Free:** Resolves the classical paradox 1/0 = 2/0
+- **High Performance:** Numba JIT-optimized implementation (750,000+ ops/sec for DV⁸)
 
 ---
 
@@ -60,6 +62,18 @@ print(j * k)  # → i
 print(k * i)  # → j
 ```
 
+### Octonions (DV⁸) — **NEW in v1.1.0**
+
+```python
+from dvmath.research.dv8.dv8_numba import DV8  # Numba-optimized version
+
+o1 = DV8([1, 0, 0, 0, 1, 0, 0, 0])
+o2 = DV8([0, 1, 0, 0, 0, 0, 0, 0])
+
+print(o1 * o2)      # Non-associative multiplication
+print(o1.norm())    # Norm is preserved
+```
+
 ---
 
 ## Documentation
@@ -68,6 +82,7 @@ print(k * i)  # → j
 
 - **Original Paper (Nov 2025):** [docs/DV_Paper_Original.pdf](docs/DV_Paper_Original.pdf)
 - **Revised Paper (Dec 2025):** [docs/DV_Paper_Revised.pdf](docs/DV_Paper_Revised.pdf)
+- **Objections & Rebuttals (Dec 2025):** [docs/objections_rebuttals_en.pdf](docs/objections_rebuttals_en.pdf) — **NEW**
 - **Evolution Tracking:** [docs/evolution.md](docs/evolution.md)
 
 ### Core Concepts
@@ -131,6 +146,40 @@ class DV4:
     def inverse(self) -> DV4               # Multiplicative inverse
 ```
 
+### DV8 (Octonions) — **NEW in v1.1.0**
+
+```python
+class DV8:
+    def __init__(self, components: list[float])  # 8 components
+    def __mul__(self, other: DV8) -> DV8         # Non-associative multiplication
+    def STO(self) -> DV8                         # Singularity Treatment
+    def norm(self) -> float                      # Euclidean norm
+    def conjugate(self) -> DV8                   # Octonion conjugate
+    def inverse(self) -> DV8                     # Multiplicative inverse
+```
+
+**Performance Variants:**
+- `dv8.py`: Original implementation (readable, 159,000 ops/sec)
+- `dv8_optimized_v2.py`: Tuple-optimized (197,000 ops/sec, 1.24× faster)
+- `dv8_numba.py`: Numba JIT (754,000 ops/sec, 4.74× faster) — **Recommended**
+
+---
+
+## Validation Results — **NEW in v1.1.0**
+
+### DV⁸ (Octonions)
+
+| Test Phase | Result | Details |
+|---|---|---|
+| **Fano Plane** | ✓ Passed | Moufang identities: 100/100 tests |
+| **Cross-Library** | ✓ Passed | Max error: < 1e-15 (machine precision) |
+| **Numerical Stability** | ✓ Passed | Stable from 1e-15 to 1e+15 (30 orders of magnitude) |
+| **Performance** | ✓ Passed | 754,756 ops/sec (Numba), 4.74× speedup |
+
+**Full Reports:**
+- [research/dv8/DV8_Validation_Report.md](research/dv8/DV8_Validation_Report.md)
+- [research/dv8/DV8_Optimization_Report.md](research/dv8/DV8_Optimization_Report.md)
+
 ---
 
 ## Research Status
@@ -138,16 +187,37 @@ class DV4:
 ### Validated and Implemented ✓
 - **DV²:** Fully validated, isomorphic to ℂ
 - **DV⁴:** Fully validated, isomorphic to ℍ
+- **DV⁸:** Fully validated, isomorphic to 𝕆 — **NEW in v1.1.0**
 
 ### Research in Progress 🔬
-- **DV⁸ (Octonions):** Prototype implementation undergoing rigorous testing
-  - Initial validation: 15/16 tests passed
-  - Next phase: Fano plane validation, benchmarking, stability analysis
-  - Expected release: Q1 2026
+- **DV¹⁶ (Sedenions):** Prototype planned for Q1 2026
+  - Challenge: Handling zero divisors and loss of norm preservation
+  - Goal: Investigate if STO can be extended consistently
 
 ### Hypothetical (Not Validated) ⚠️
 - Physical applications (black holes, quantum field theory)
-- Higher dimensions (DV¹⁶, DV³²)
+- Lie algebra connections
+- Category theory formalization
+
+---
+
+## Version History
+
+### v1.1.0 (December 2025) — **Current**
+- **DV⁸ Validated:** Complete 4-phase validation (Fano plane, cross-library, stability, performance)
+- **Performance Optimization:** Numba JIT implementation (4.74× speedup)
+- **Documentation:** Added "Objections and Rebuttals" PDF
+- **Bug Fixes:** Near-zero division handling in DV⁸
+
+### v1.0.0 (December 2025)
+- **Major Milestone:** Fusion of DV² and DV⁴ into unified codebase
+- **DV⁸ Research:** Prototype implementation with initial validation
+- **STO Clarification:** Defined as GTR1 application at singularities
+- **Bug Fixes:** Corrected unreachable code in `__pow__` method
+
+### v0.1.0 (Initial Release)
+- **DV² Implementation:** Basic complex number operations with TR
+- **Prototype Status:** Initial exploration of DV framework
 
 ---
 
@@ -157,6 +227,7 @@ See the [examples/](examples/) directory for more detailed demonstrations:
 - `singularity_demo.py`: Basic singularity handling
 - `quaternion_rotations.py`: 3D rotations using DV⁴
 - `norm_preservation.py`: Validation of norm preservation
+- `octonion_demo.py`: DV⁸ operations and non-associativity — **NEW**
 
 ---
 
@@ -197,3 +268,4 @@ If you use DV-Mathematics in your research, please cite:
 **Ivano Franco Malaspina**  
 GitHub: [@IMalaspina](https://github.com/IMalaspina)  
 Repository: [github.com/IMalaspina/dvmath](https://github.com/IMalaspina/dvmath)
+
