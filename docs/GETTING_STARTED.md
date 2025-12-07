@@ -151,3 +151,39 @@ print(f"(o1*o2)*o3 == o1*(o2*o3): {assoc_check1 == assoc_check2}") # Will be Fal
 - **Read the scientific paper** in `docs/DV_Paper_Revised.pdf` for the full theoretical background.
 - **Consult the API documentation** (coming soon) for a detailed reference of all classes and methods.
 - **Contribute!** If you find new applications or ways to improve the library, please open an issue or pull request on GitHub.
+
+---
+
+## 5. Mathematical Solidity: The Formal Proofs
+
+DV-Mathematics is not just a programming library; it is a mathematically rigorous framework built on a solid theoretical foundation. To ensure its validity, the core components have been formally proven:
+
+### Isomorphism to Established Algebras
+
+Formal proofs have been established to show that the core DV algebras are **isomorphic** (mathematically identical) to the classical normed division algebras:
+
+- **DV² ≅ ℂ (Complex Numbers):** The algebra of DV² is structurally identical to the complex numbers.
+- **DV⁴ ≅ ℍ (Quaternions):** The algebra of DV⁴ is structurally identical to the quaternions.
+- **DV⁸ ≅ 𝕆 (Octonions):** The algebra of DV⁸ is structurally identical to the octonions.
+
+**What this means for you:** You are not using a new, unproven system. You are using a framework that is built upon centuries of established mathematics, but with a new, powerful perspective on handling singularities.
+
+### Consistency of the STO Rule
+
+A formal proof demonstrates that the Singularity Treatment Operation (STO) is **mathematically consistent**:
+
+- **Norm Preservation:** STO is an isometry, meaning it preserves the magnitude (norm) of the vector. No information is lost.
+- **Paradox-Free:** The rule resolves the classical paradox 1/0 = 2/0 by providing distinct, proportional results.
+
+**What this means for you:** The singularity handling in DV-Math is not an arbitrary "hack". It is a consistent, predictable, and paradox-free rule that you can rely on in your applications.
+
+> For the complete mathematical details, please see the full paper: [**Formal Proofs of the DV-Mathematics Framework**](formal_proofs_complete.pdf).
+
+---
+
+## 6. Further Resources
+
+- **Scientific Paper:** [DV_Paper_Revised.pdf](DV_Paper_Revised.pdf) - Complete theoretical background
+- **Objections & Rebuttals:** [objections_rebuttals_en.pdf](objections_rebuttals_en.pdf) - Addressing common criticisms
+- **API Documentation:** [research/dv8/API_DOCUMENTATION.md](../research/dv8/API_DOCUMENTATION.md) - Detailed reference for all DV⁸ versions
+- **GitHub Repository:** [github.com/IMalaspina/dvmath](https://github.com/IMalaspina/dvmath)
