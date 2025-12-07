@@ -7,7 +7,7 @@
 
 **Author:** Ivano Franco Malaspina  
 **Date:** December 2025  
-**Version:** 1.1.0  
+**Version:** 1.2.2  
 
 ---
 
@@ -62,7 +62,7 @@ print(j * k)  # → i
 print(k * i)  # → j
 ```
 
-### Octonions (DV⁸) — **NEW in v1.1.0**
+### Octonions (DV⁸) — **NEW in v1.1.0, Optimized in v1.2.0**
 
 ```python
 from dvmath.research.dv8.dv8_numba import DV8  # Numba-optimized version
@@ -165,7 +165,7 @@ class DV8:
 
 ---
 
-## Validation Results — **NEW in v1.1.0**
+## Validation Results — **NEW in v1.1.0, Updated in v1.2.0**
 
 ### DV⁸ (Octonions)
 
@@ -203,7 +203,12 @@ class DV8:
 
 ## Version History
 
-### v1.1.0 (December 2025) — **Current**
+### v1.2.2 (December 2025) — **Current**
+- **Documentation Complete:** Added comprehensive Getting Started guide, API documentation, and updated scientific paper
+- **Objections & Rebuttals:** Added two new objections (6 & 7) addressing "programming trick" and "STO vs Riemann" criticisms
+- **Minor Fixes:** Improved consistency across all documentation
+
+### v1.1.0 (December 2025)
 - **DV⁸ Validated:** Complete 4-phase validation (Fano plane, cross-library, stability, performance)
 - **Performance Optimization:** Numba JIT implementation (4.74× speedup)
 - **Documentation:** Added "Objections and Rebuttals" PDF
